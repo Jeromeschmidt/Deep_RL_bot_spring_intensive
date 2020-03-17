@@ -32,6 +32,7 @@ Dates 3/16-3/25
 ## Car
 **Have bot play connect 4 instead of tik-tak-toe with minimax that includes alpha-beta pruning.**
 ***Possible addition: Limit depth of search***
+***Possible addition: Deep RL approach to evaluate current board position to find best next move without searching more level of the tree***
 
 
 ## Personal Achievement Goals:
