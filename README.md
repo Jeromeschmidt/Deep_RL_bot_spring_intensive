@@ -5,7 +5,7 @@ Dates 3/16-3/25
 **Jerome Schmidt**
 
 
-**Deep Learning Game Bot**
+**MiniMax Game Bot**
 
 
 **New Project**
