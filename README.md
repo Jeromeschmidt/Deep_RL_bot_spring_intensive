@@ -16,28 +16,28 @@ Dates 3/16-3/25
 
 ## Description
 
-**My goal of this intensive is to learn more about deep reinforcement learning or deep learning inn general. I feel a good way to do this is to build a deep learning bot to play a game such as tik-tak-toe using Mini-max tree search. After that if there is still time left in the intensive I would like to use the bot on a different game like connect 4.**
+**My goal of this intensive is to learn more about Minimax and game playing algorithms general. I feel a good way to do this is to build a bot to play a game such as tik-tak-toe using the Minimax algorithm and alpha-beta tuning. After that if there is still time left in the intensive I would like to use the bot on a different game like connect 4.**
 
-**Alternative to having project live: Write a Medium article about my project and learning experience.**
 
 ## Challenges I Anticipate
 
-**Since I am relatively new to deep reinforcement learning, I will have to learn things as I go.**
+**Since I am relatively new to game playing bots, I will have to learn things as I go.**
 
 ## Skateboard
-**Write a tik-tak-toe game that can be played by 2 players.**
+**Write a tik-tak-toe game that can be played by 2 players in the terminal.**
 
 ## Bike
-**Build deep reinforcement learning bot to play tik-tak-toe.**
+**Build vanilla Minimax bot to play tik-tak-toe against a real user.**
 
 ## Car
-**Have bot play connect 4 instead of tik-tak-toe.**
+**Have bot play connect 4 instead of tik-tak-toe with minimax that includes alpha-beta pruning.**
+***Possible addition: Limit depth of search***
 
 
 ## Personal Achievement Goals:
 
-1. Become more familiar with deep reinforcement learning
-1. Build a good project for my portfolio
+1. Become more familiar with game playing bots
+2. Build a good project for my portfolio
 
 
 ## Wireframes
