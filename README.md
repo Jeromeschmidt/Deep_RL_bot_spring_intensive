@@ -68,6 +68,6 @@ Dates 3/16-3/25
 ### Sign off
 
 **Student Name:**                
-> Name / Date
+> Jerome Schmidt
 **Make School Advisor Name**
 > TBD
