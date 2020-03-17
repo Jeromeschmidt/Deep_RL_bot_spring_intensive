@@ -16,7 +16,7 @@ Dates 3/16-3/25
 
 ## Description
 
-**My goal of this intensive is to learn more about deep reinforcement learning. I feel a good way to do this is to build a deep learning bot to play a game such as tik-tak-toe. After that if there is still time left in the intensive I would like to use the bot on a different game like chess.**
+**My goal of this intensive is to learn more about deep reinforcement learning or deep learning inn general. I feel a good way to do this is to build a deep learning bot to play a game such as tik-tak-toe using Mini-max tree search. After that if there is still time left in the intensive I would like to use the bot on a different game like connect 4.**
 
 **Alternative to having project live: Write a Medium article about my project and learning experience.**
 
@@ -31,7 +31,7 @@ Dates 3/16-3/25
 **Build deep reinforcement learning bot to play tik-tak-toe.**
 
 ## Car
-**Have bot play chess instead of tik-tak-toe.**
+**Have bot play connect 4 instead of tik-tak-toe.**
 
 
 ## Personal Achievement Goals:
