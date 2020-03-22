@@ -4,6 +4,9 @@ class Board():
         self.board = [[" ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " "], [" ", " ", " ", " ", " ", " "]]
 
     def show_board(self):
+        print("--------------------------")
+        print("0" + " | " + "1" + " | " + "2" + " | " + "3" + " | " + "4" + " | " + "5")
+        print("**************************")
         for i in range(len(self.board)):
             print(str(self.board[i][0]) + " | " + str(self.board[i][1]) + " | " + str(self.board[i][2]) + " | " + str(self.board[i][3]) + " | " + str(self.board[i][4]) + " | " + str(self.board[i][5]) + " | ")
             # print("_" + " | " + "_" + " | " + "_")
@@ -12,6 +15,9 @@ class Board():
         if self.board[0][col_num] is " ":
             return True
         return False
+
+    def get_value(self, loc):
+        return self.board[loc[0]][loc[1]]
 
     def get_open_positions(self):
         open = list()
@@ -40,7 +46,7 @@ class Board():
 
     def check_win(self):
         #check column win
-        for i in range(len(self.board)-4, 0, -1):
+        for i in range(len(self.board)-3):
             for j in range(len(self.board[i])):
                 if ((self.board[i][j] == self.board[i+1][j]) and (self.board[i+1][j] == self.board[i+2][j]) and (self.board[i+2][j] == self.board[i+3][j]) and (self.board[i][j] != " ")):
                     return (True, self.board[i][j])
@@ -110,12 +116,77 @@ class Game():
 
 class Bot:
 
-    def minimax(self, board, isMaxPlayer, alpha, beta):
+    def check_vertical_streak(self, x, y, board, length):
+        count = 0
+        for i in range(x, 5):
+            if board.get_value((i,y)) == board.get_value((x,y)):
+                count += 1
+        if count >= length:
+            return 1
+        return 0
+
+    def check_horizontal_streak(self, x, y, board, length):
+        count = 0
+        for i in range(x, 6):
+            if board.get_value((x, i)) == board.get_value((x, y)):
+                count += 1
+        if count >= length:
+            return 1
+        return 0
+
+    # def check_diagonal_streak(self, x, y, board, length):
+    #     count = 0
+    #     result = 0
+    #     #\
+    #     for i in range(x, 4):
+    #         if board.get_value((x+i, y+i)) == board.get_value((x, y)):
+    #             count += 1
+    #     if count >= length:
+    #         result =  1
+    #
+    #     count = 0
+    #
+    #     #/
+    #     for i in range(x, 4):
+    #         if board.get_value((x+i, y-i)) == board.get_value((x, y)):
+    #             count += 1
+    #     if count >= length:
+    #         result +=  1
+    #
+    #     return result
+
+    def check_streak(self, tile, board, length):
+        count = 0
+        for i in range(5):
+            for j in range(6):
+                if board.get_value((i,j)) == tile:
+                    count += self.check_vertical_streak(i, j, board, length)
+                    count += self.check_horizontal_streak(i, j, board, length)
+                    # count += self.check_diagonal_streak(i, j, board, length)
+        return count
+
+    def evaluate_board(self, board):
+        #evaluation formula adapted from: https://github.com/prakhar10/Connect4
+        bot_4 = self.check_streak("O", board, 4)
+        bot_3 = self.check_streak("O", board, 3)
+        bot_2 = self.check_streak("O", board, 2)
+        human_4 = self.check_streak("X", board, 4)
+        human_3 = self.check_streak("X", board, 3)
+        human_2 = self.check_streak("X", board, 2)
+        return (((bot_4*10) + (bot_3*5)+ (bot_2*2)) - ((human_4*10) + (human_3*5)+ (human_2*2)))
+
+    def minimax(self, board, isMaxPlayer, alpha, beta, depth):
+        if depth == 4:
+            return self.evaluate_board(board)
+
         if ((board.check_win()[0] is True) and (board.check_win()[1] == "X")):
+            # print("-1")
             return -1
         elif((board.check_win()[0] is True) and (board.check_win()[1] == "O")):
+            # print("1")
             return 1
         elif(board.check_win()[0] is True and board.check_win()[1] == "Draw"):
+            # print("Draw")
             return 0
 
         open_moves = board.get_open_positions()
@@ -124,23 +195,25 @@ class Bot:
             best_score = float("-inf")
             for move in open_moves:
                 board.place_O(move)
-                score = self.minimax(board, not isMaxPlayer, alpha, beta)
+                score = self.minimax(board, not isMaxPlayer, alpha, beta, depth+1)
                 board.undo_move(move)
                 best_score = max(score, best_score)
                 alpha = max(alpha, best_score)
                 if beta <= alpha:
                     break;
+                # print(best_score)
             return best_score
         else:
             best_score = float("inf")
             for move in open_moves:
                 board.place_X(move)
-                score = self.minimax(board, not isMaxPlayer, alpha, beta)
+                score = self.minimax(board, not isMaxPlayer, alpha, beta, depth+1)
                 board.undo_move(move)
                 best_score = min(score, best_score)
                 beta = min(best_score, beta)
                 if beta <= alpha:
                     break;
+                # print(best_score)
             return best_score
 
     def find_move(self, board):
@@ -151,7 +224,7 @@ class Bot:
 
         for move in open_moves:
             board.place_O(move)
-            score = self.minimax(board, False, float("-inf"), float("inf"))
+            score = self.minimax(board, False, float("-inf"), float("inf"), 0)
             board.undo_move(move)
             if score > best_score:
                 best_score = score

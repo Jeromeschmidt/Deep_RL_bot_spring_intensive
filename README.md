@@ -16,7 +16,7 @@ Dates 3/16-3/25
 
 ## Description
 
-**My goal of this intensive is to learn more about Minimax and game playing algorithms general. I feel a good way to do this is to build a bot to play a game such as tik-tak-toe using the Minimax algorithm and alpha-beta tuning. After that if there is still time left in the intensive I would like to use the bot on a different game like connect 4.**
+**My goal of this intensive is to learn more about Minimax and game playing algorithms general. I feel a good way to do this is to build a bot to play a game such as tik-tak-toe using the Minimax algorithm and alpha-beta pruning. After that if there is still time left in the intensive I would like to use the bot on a different game like connect 4.**
 
 
 ## Challenges I Anticipate

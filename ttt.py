@@ -49,8 +49,8 @@ class Board():
             return (True, self.board[0][0])
         if ((self.board[0][2] == self.board[1][1]) and (self.board[1][1] == self.board[2][0]) and (self.board[0][2] != " ")):
             return (True, self.board[0][2])
+        #check draw
         if len(self.get_open_positions()) == 0:
-            #draw
             return (True, "Draw")
         return (False, None)
 
