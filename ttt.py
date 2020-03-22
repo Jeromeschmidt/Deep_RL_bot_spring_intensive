@@ -106,7 +106,7 @@ class Game():
 
 class Bot:
 
-    def minimax(self, board, isMaxPlayer):
+    def minimax(self, board, isMaxPlayer, alpha, beta):
         if ((board.check_win()[0] is True) and (board.check_win()[1] == "X")):
             return -1
         elif((board.check_win()[0] is True) and (board.check_win()[1] == "O")):
@@ -120,17 +120,23 @@ class Bot:
             best_score = float("-inf")
             for move in open_moves:
                 board.place_O(move)
-                score = self.minimax(board, not isMaxPlayer)
+                score = self.minimax(board, not isMaxPlayer, alpha, beta)
                 board.undo_move(move)
                 best_score = max(score, best_score)
+                alpha = max(alpha, best_score)
+                if beta <= alpha:
+                    break;
             return best_score
         else:
             best_score = float("inf")
             for move in open_moves:
                 board.place_X(move)
-                score = self.minimax(board, not isMaxPlayer)
+                score = self.minimax(board, not isMaxPlayer, alpha, beta)
                 board.undo_move(move)
                 best_score = min(score, best_score)
+                beta = min(best_score, beta)
+                if beta <= alpha:
+                    break;
             return best_score
 
     def find_move(self, board):
@@ -141,7 +147,7 @@ class Bot:
 
         for move in open_moves:
             board.place_O(move)
-            score = self.minimax(board, False)
+            score = self.minimax(board, False, float("-inf"), float("inf"))
             board.undo_move(move)
             if score > best_score:
                 best_score = score
