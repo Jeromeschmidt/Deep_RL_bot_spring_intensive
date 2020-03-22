@@ -1,4 +1,3 @@
-from minimax import Bot
 
 class Board():
     def __init__(self, board=None):
@@ -7,8 +6,11 @@ class Board():
             self.board = board
 
     def show_board(self):
+        print("-------------")
+        print("   " + "0" + " | " + "1" + " | " + "2")
+        print("*************")
         for i in range(len(self.board)):
-            print(str(self.board[i][0]) + " | " + str(self.board[i][1]) + " | " + str(self.board[i][2]))
+            print(str(i) + "* "+ str(self.board[i][0]) + " | " + str(self.board[i][1]) + " | " + str(self.board[i][2]))
             # print("_" + " | " + "_" + " | " + "_")
 
     def get_position(self, loc):
@@ -37,20 +39,20 @@ class Board():
         #check row win
         for i in range(len(self.board)):
             if ((self.board[i][0] == self.board[i][1]) and (self.board[i][1] == self.board[i][2]) and (self.board[i][0] != " ")):
-                return True
+                return (True, self.board[i][0])
         #check column win
         for i in range(len(self.board)):
             if ((self.board[0][i] == self.board[1][i]) and (self.board[1][i] == self.board[2][i]) and (self.board[0][i] != " ")):
-                return True
+                return (True, self.board[0][i])
         #check diagonal win
         if ((self.board[0][0] == self.board[1][1]) and (self.board[1][1] == self.board[2][2]) and (self.board[0][0] != " ")):
-            return True
+            return (True, self.board[0][0])
         if ((self.board[0][2] == self.board[1][1]) and (self.board[1][1] == self.board[2][0]) and (self.board[0][2] != " ")):
-            return True
+            return (True, self.board[0][2])
         if len(self.get_open_positions()) == 0:
             #draw
-            return "Draw"
-        return False
+            return (True, "Draw")
+        return (False, None)
 
 class Game():
     def __init__(self):
@@ -59,12 +61,16 @@ class Game():
 
     def play(self):
         print("Indexes start at 0!")
-        while self.board.check_win() is False:
+        while self.board.check_win()[0] is False:
             self.player_X_turn()
             self.board.show_board()
-            if self.board.check_win() is False:
+            if self.board.check_win()[0] is False:
                 self.player_O_turn()
                 self.board.show_board()
+        if self.board.check_win()[1] == "Draw":
+            print("It's a draw!")
+        else:
+            print(str(self.board.check_win()[1]) + " has won!")
 
     def player_X_turn(self):
         move = self.get_move()
@@ -99,15 +105,13 @@ class Game():
             return self.get_move()
 
 class Bot:
-    def __init__(self):
-        self.board = Board()
 
     def minimax(self, board, isMaxPlayer):
-        if isMaxPlayer == True and board.check_win() == True:
+        if ((board.check_win()[0] is True) and (board.check_win()[1] == "X")):
             return -1
-        elif(isMaxPlayer != True and board.check_win() == True):
+        elif((board.check_win()[0] is True) and (board.check_win()[1] == "O")):
             return 1
-        elif(board.check_win() == "Draw"):
+        elif(board.check_win()[0] is True and board.check_win()[1] == "Draw"):
             return 0
 
         open_moves = board.get_open_positions()
