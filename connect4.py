@@ -5,7 +5,7 @@ class Board():
 
     def show_board(self):
         for i in range(len(self.board)):
-            print(str(self.board[i][0]) + " | " + str(self.board[i][1]) + " | " + str(self.board[i][2]) + " | " + str(self.board[i][3]) + " | " + str(self.board[i][4]) + " | " + str(self.board[i][5]))
+            print(str(self.board[i][0]) + " | " + str(self.board[i][1]) + " | " + str(self.board[i][2]) + " | " + str(self.board[i][3]) + " | " + str(self.board[i][4]) + " | " + str(self.board[i][5]) + " | ")
             # print("_" + " | " + "_" + " | " + "_")
 
     def get_position(self, col_num):
@@ -88,6 +88,3 @@ class Game():
         else:
             print("Please choose an open column!")
             return self.get_move()
-
-game = Game()
-game.play()
