@@ -13,6 +13,14 @@ class Board():
             return True
         return False
 
+    def get_open_positions(self):
+        open = list()
+        for i in range(len(self.board)):
+            for j in range(len(self.board[0])):
+                if self.board[i][j] == " ":
+                    open.append((i, j))
+        return open
+
     def get_height(self, col_num):
         for i in range(len(self.board[0])+1):
             if self.board[i][col_num] != " ":
@@ -69,6 +77,7 @@ class Game():
         self.board.place_X(move)
 
     def player_O_turn(self):
+        ## will use this for minimax player
         move = self.get_move()
         self.board.place_O(move)
 
