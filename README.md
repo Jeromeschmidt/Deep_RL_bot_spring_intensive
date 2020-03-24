@@ -28,7 +28,7 @@ Dates 3/16-3/25
 
 **Since the compute time for connect 4 was significant enough to reason the game was unplayable, added depth limitation and evaluations function to reduce compute time. Depending on the depth allowed, this would lessen the difficulty but that can be adjusted.**
 
-Evaluation Formula: score = ((number of possible streaks of 4)*10 + (number of possible streaks of 3)*5 + (number of possible streaks of 2)*2)*
+Evaluation Formula: score = ((number of possible streaks of 4)*10 + (number of possible streaks of 3)*5 + (number of possible streaks of 2)*2)
 
 ## Personal Achievement Goals:
 
