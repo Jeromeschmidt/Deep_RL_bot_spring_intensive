@@ -14,7 +14,7 @@ Dates 3/16-3/25
 ## Setup
 ```bash
 # clone the repo
-https://github.com/Jeromeschmidt/MiniMax.git
+git clone https://github.com/Jeromeschmidt/MiniMax.git
 # cd into the cloned directory
 cd MiniMax
 # run the program
