@@ -9,7 +9,7 @@ Dates 3/16-3/25
 
 
 ## Description
-****
+**Minimax bot that plays tic-tac-toe and connect4 against a user. Uses alpha-beta pruning for both games and depth limitation and an evaluation function for connect 4 to make the game more playable.**
 
 ## Setup
 ```bash
