@@ -23,7 +23,9 @@ python3 main.py
 
 ## Example
 **Tic-Tac-Toe**
+
 ![ttt](assets/ttt_minimax.gif)
+
 **Connect 4**
 
 ## Challenges I Faced
