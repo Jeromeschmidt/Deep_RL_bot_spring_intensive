@@ -33,5 +33,6 @@ Evaluation Formula: score = ((number of possible streaks of 4)*10 + (number of p
 
 **Student Name:**                
 > Jerome Schmidt
+
 **Make School Advisor Name**
 > TBD
