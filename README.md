@@ -9,10 +9,17 @@ Dates 3/16-3/25
 
 
 ## Description
-
 ****
 
 ## Setup
+```bash
+# clone the repo
+https://github.com/Jeromeschmidt/MiniMax.git
+# cd into the cloned directory
+cd MiniMax
+# run the program
+python3 main.py
+```
 
 ## Example
 
@@ -25,7 +32,7 @@ Dates 3/16-3/25
 ## Phase 2
 **Built vanilla Minimax bot to play tic-tac-toe and connect 4 against a real user.**
 
-## Car
+## Phase 3
 **Implemented alpha-beta pruning to reduce compute time**
 
 **Since the compute time for connect 4 was significant enough to reason the game was unplayable, added depth limitation and evaluations function to reduce compute time. Depending on the depth allowed, this would lessen the difficulty but that can be adjusted.**
