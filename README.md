@@ -12,16 +12,18 @@ Dates 3/16-3/25
 
 ****
 
+## Setup
+
+## Example
 
 ## Challenges I Faced
-
 **Compute time for Connect 4 bot to make a single move could be greater than 1 hour on my laptop. Solved by using depth limitation of Minimax search and an evaluation function to significantly reduce compute time.**
 
 ## Phase 1
 **Wrote versions of both tic-tac-toe and connect 4 that could be played by 2 players in the terminal.**
 
 ## Phase 2
-**Build vanilla Minimax bot to play tic-tac-toe and connect 4 against a real user.**
+**Built vanilla Minimax bot to play tic-tac-toe and connect 4 against a real user.**
 
 ## Car
 **Implemented alpha-beta pruning to reduce compute time**
