@@ -1,4 +1,4 @@
-# Juniors Spring Intensive Deliverable README
+# Juniors Spring Intensive Deliverable Proposal
 
 Dates 3/16-3/25
 
@@ -8,25 +8,32 @@ Dates 3/16-3/25
 **MiniMax Game Bot**
 
 
+**New Project**
+
+
+**Solo Project**
+
+
 ## Description
 
-****
+**My goal of this intensive is to learn more about Minimax and game playing algorithms general. I feel a good way to do this is to build a bot to play a game such as tic-tac-toe using the Minimax algorithm and alpha-beta pruning. After that if there is still time left in the intensive I would like to use the bot on a different game like connect 4.**
 
 
-## Challenges I Faced
+## Challenges I Anticipate
 
-**Compute time for Connect 4 bot to make a single move could be greater than 1 hour on my laptop. Solved by using depth limitation of Minimax search and an evaluation function to significantly reduce compute time.**
+**Since I am relatively new to game playing bots, I will have to learn things as I go.**
 
-## Phase 1
-**Wrote versions of both tic-tac-toe and connect 4 that could be played by 2 players in the terminal.**
+## Skateboard
+**Write a tic-tac-toe game that can be played by 2 players in the terminal.**
 
-## Phase 2
-**Build vanilla Minimax bot to play tic-tac-toe and connect 4 against a real user.**
+## Bike
+**Build vanilla Minimax bot to play tic-tac-toe against a real user.**
 
 ## Car
-**Implemented alpha-beta pruning to reduce compute time**
-**Since the compute time for connect 4 was significant enough to reason the game was unplayable, added depth limitation and evaluations function to reduce compute time. Depending on the depth allowed, this would lessen the difficulty but that can be adjusted.**
-***Evaluation Formula: score = ((number of possible streaks of 4)*10 + (number of possible streaks of 3)*5 + (number of possible streaks of 2)*2)***
+**Have bot play connect 4 instead of tic-tac-toe with minimax that includes alpha-beta pruning.**
+***Possible addition: Limit depth of search***
+***Possible addition: Deep RL approach to evaluate current board position to find best next move without searching more level of the tree***
+
 
 ## Personal Achievement Goals:
 
