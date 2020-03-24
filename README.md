@@ -30,8 +30,6 @@ python3 main.py
 
 ![connect 4](assets/connect4_minimax.gif)
 
-## Challenges I Faced
-**Compute time for Connect 4 bot to make a single move could be greater than 1 hour on my laptop. Solved by using depth limitation of Minimax search and an evaluation function to significantly reduce compute time.**
 
 ## Phase 1
 **Wrote versions of both tic-tac-toe and connect 4 that could be played by 2 players in the terminal.**
@@ -46,6 +44,8 @@ python3 main.py
 
 Evaluation Formula: score = ((number of possible streaks of 4)*10 + (number of possible streaks of 3)*5 + (number of possible streaks of 2)*2)
 
+## Challenges I Faced
+**Compute time for Connect 4 bot to make a single move could be greater than 1 hour on my laptop. Solved by using depth limitation of Minimax search and an evaluation function to significantly reduce compute time.**
 
 **Student Name:**                
 > Jerome Schmidt
