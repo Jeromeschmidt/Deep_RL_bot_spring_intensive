@@ -134,26 +134,34 @@ class Bot:
             return 1
         return 0
 
-    # def check_diagonal_streak(self, x, y, board, length):
-    #     count = 0
-    #     result = 0
-    #     #\
-    #     for i in range(x, 4):
-    #         if board.get_value((x+i, y+i)) == board.get_value((x, y)):
-    #             count += 1
-    #     if count >= length:
-    #         result =  1
-    #
-    #     count = 0
-    #
-    #     #/
-    #     for i in range(x, 4):
-    #         if board.get_value((x+i, y-i)) == board.get_value((x, y)):
-    #             count += 1
-    #     if count >= length:
-    #         result +=  1
-    #
-    #     return result
+    def check_diagonal_streak(self, x, y, board, length):
+        count = 0
+        result = 0
+        #\
+        j = y
+        for i in range(x, 4):
+            if j > 5:
+                break;
+            if board.get_value((x+i, j)) == board.get_value((x, y)):
+                count += 1
+            j += 1
+        if count >= length:
+            result =  1
+
+        count = 0
+
+        #/
+        j = y
+        for i in range(x, 4):
+            if j > 5:
+                break;
+            if board.get_value((x+i, j)) == board.get_value((x, y)):
+                count += 1
+            j -= 1
+        if count >= length:
+            result +=  1
+
+        return result
 
     def check_streak(self, tile, board, length):
         count = 0
@@ -162,7 +170,7 @@ class Bot:
                 if board.get_value((i,j)) == tile:
                     count += self.check_vertical_streak(i, j, board, length)
                     count += self.check_horizontal_streak(i, j, board, length)
-                    # count += self.check_diagonal_streak(i, j, board, length)
+                    count += self.check_diagonal_streak(i, j, board, length)
         return count
 
     def evaluate_board(self, board):
