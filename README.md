@@ -28,6 +28,8 @@ python3 main.py
 
 **Connect 4**
 
+![ttt](assets/connect4_minimax.gif)
+
 ## Challenges I Faced
 **Compute time for Connect 4 bot to make a single move could be greater than 1 hour on my laptop. Solved by using depth limitation of Minimax search and an evaluation function to significantly reduce compute time.**
 
